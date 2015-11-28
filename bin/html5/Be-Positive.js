@@ -17,7 +17,7 @@ BloodTransfusionRules = {
    * Set the simulation speed.
    * @type {Number} : Valid values between 1 and 200
    */
-  simulation_speed : 90,
+  simulation_speed : 200,
 
   /**
    * returns BloodType, or false to give no BloodType
@@ -46,9 +46,7 @@ BloodTransfusionRules = {
    */
 
   receive_patient : function (blood_inventory, patient) {
-    
-    // give a random blood type to anyone
-    // very bad idea!
+   
     return [
       BloodType.AB_POS,
       BloodType.AB_NEG,

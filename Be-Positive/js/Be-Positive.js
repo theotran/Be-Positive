@@ -17,7 +17,7 @@ BloodTransfusionRules = {
    * Set the simulation speed.
    * @type {Number} : Valid values between 1 and 200
    */
-  simulation_speed : 90,
+  simulation_speed : 200,
 
   /**
    * returns BloodType, or false to give no BloodType
@@ -46,15 +46,46 @@ BloodTransfusionRules = {
    */
 
   receive_patient : function (blood_inventory, patient) {
-    
-    // give a random blood type to anyone
-    // very bad idea!
-    return [
-      BloodType.AB_POS,
-      BloodType.AB_NEG,
-      BloodType.A_POS,
-      BloodType.A_NEG
-    ][Math.floor(Math.random()*4)];
+  
+    console.log(blood_inventory);
+    if (patient.blood_type == "AB_POS" && blood_inventory.AB_POS > 0) {
+      
+      return BloodType.AB_POS;
+    }
+    if (patient.blood_type == "AB_NEG" && blood_inventory.AB_NEG > 0) {
+      
+      return BloodType.AB_NEG;
+    }
+    if (patient.blood_type == "A_POS" && blood_inventory.A_POS > 0) {
+      
+      return BloodType.A_POS;
+    }
+    if (patient.blood_type == "A_NEG" && blood_inventory.A_NEG > 0) {
+      
+      return BloodType.A_NEG;
+    }
+    if (patient.blood_type == "B_POS" && blood_inventory.B_POS > 0) {
+      
+      return BloodType.B_POS;
+    }
+    if (patient.blood_type == "B_NEG" && blood_inventory.B_NEG > 0) {
+     
+      return BloodType.B_NEG;
+    }
+    if (patient.blood_type == "O_POS" && blood_inventory.O_POS > 0) {
+      
+      return BloodType.O_POS;
+    }
+    if (patient.blood_type == "O_NEG" && blood_inventory.O_NEG > 0) {
+      
+      return BloodType.O_NEG;
+    }
+    // return [
+    //   BloodType.AB_POS,
+    //   BloodType.AB_NEG,
+    //   BloodType.A_POS,
+    //   BloodType.A_NEG
+    // ][Math.floor(Math.random()*4)];
 
   }
 
